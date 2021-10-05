@@ -11,6 +11,7 @@ namespace AddressBookusingCollections
         //list declaration to store the personal details
         List<Contacts> listcontacts = new List<Contacts>();
         Dictionary<string, Contacts> dic = new Dictionary<string, Contacts>();
+        List<Contacts> searchcity = new List<Contacts>();
 
         public void Add()//add method 
         {
@@ -109,6 +110,16 @@ namespace AddressBookusingCollections
             listcontacts.RemoveAt(indexOfContact);
 
         }
+        public void SearchContact(string cityName, string statename)
+        {
+            searchcity = listcontacts.FindAll(x => (x.city == cityName || x.state == statename));//Lambda Expression
+
+            foreach (Contacts i in searchcity)
+            {
+                Console.WriteLine("Person First Name : " + i.first_name);
+            }
+        }
+
 
 
 

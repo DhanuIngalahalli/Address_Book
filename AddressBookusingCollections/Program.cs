@@ -50,6 +50,15 @@ namespace AddressBookusingCollections
                         string firstname = Console.ReadLine();
                         op.Delete(firstname);//to delete contact
                         break;
+                    case 5:
+                    
+                        Console.Write("City Name : ");
+                        string cname = Console.ReadLine();
+
+                        Console.WriteLine("State Name : ");
+                        string sname = Console.ReadLine();
+                        op.SearchContact(cname, sname);
+                        break;
 
                     default:
                         Console.WriteLine("End");//default condition
