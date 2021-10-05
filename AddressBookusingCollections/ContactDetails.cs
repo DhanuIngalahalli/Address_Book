@@ -10,6 +10,7 @@ namespace AddressBookusingCollections
 
         //list declaration to store the personal details
         List<Contacts> listcontacts = new List<Contacts>();
+        Dictionary<string, Contacts> dic = new Dictionary<string, Contacts>();
 
         public void Add()//add method 
         {
@@ -47,18 +48,33 @@ namespace AddressBookusingCollections
 
         public void Print()//Print method 
         {
-            foreach (var i in listcontacts)
+            for (int i = 0; i < listcontacts.Count; i++)
             {
-                Console.WriteLine("First Name : " + i.first_name);
-                Console.WriteLine("Last Name : " + i.last_name);
-                Console.WriteLine("Address : " + i.address);
-                Console.WriteLine("City Name : " + i.city);
-                Console.WriteLine("State Name : " + i.state);
-                Console.WriteLine("Zip Code : " + i.zip);
-                Console.WriteLine("Phone No. : " + i.phone_no);
-                Console.WriteLine("Email ID : " + i.email);
+                Contacts contact = listcontacts[i];
+
+                if (!dic.ContainsKey(contact.first_name))//if condition to check the key is present or not
+                {
+                    dic.Add(contact.first_name, contact);//if not the add into the addressbook
+                }
+                else
+                {
+                    Console.WriteLine(" Name {0} is present", contact.first_name);
+                }
+            }
+            foreach (var i in dic)
+            {
+                Console.WriteLine("First Name : " + i.Key);
+                Console.WriteLine("Last Name : " + i.Value.last_name);
+                Console.WriteLine("Address : " + i.Value.address);
+                Console.WriteLine("City Name : " + i.Value.city);
+                Console.WriteLine("State Name : " + i.Value.state);
+                Console.WriteLine("Zip Code : " + i.Value.zip);
+                Console.WriteLine("Phone No. : " + i.Value.phone_no);
+                Console.WriteLine("Email ID : " + i.Value.email);
+                Console.WriteLine("\n");
             }
         }
+
         //Edit method 
         public void Edit(string name, string first, string last, string add, string cityN, string stateN)
         {
