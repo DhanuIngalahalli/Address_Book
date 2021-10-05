@@ -59,7 +59,16 @@ namespace AddressBookusingCollections
                         string sname = Console.ReadLine();
                         op.SearchContact(cname, sname);
                         break;
+                    case 6:
+                       
+                        Console.Write(" City Name : ");
+                        string city1 = Console.ReadLine();
 
+                        Console.WriteLine("State Name : ");
+                        string state1 = Console.ReadLine();
+                        op.SearchCityState(city1, state1);
+
+                        break;
                     default:
                         Console.WriteLine("End");//default condition
                         count++;
